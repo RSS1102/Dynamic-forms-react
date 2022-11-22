@@ -26,6 +26,7 @@ function Form() {
      * defaultValues 默认值需要后续更新
      *  resolver: zodResolver(zodDataResolver), 执行验证
      *  mode: "onChange" 监听子组件变化获取值
+     * reValidateMode:{ onChange | onBlur | onSubmit = 'onChange'}此选项允许您在用户提交表单（事件）后重新验证有错误的输入时配置验证策略。onSubmit默认情况下，验证在输入更改事件期间触发。
      */
 
     const { reset,
@@ -35,7 +36,8 @@ function Form() {
     } = useForm({
         defaultValues,
         resolver: zodResolver(zodDataResolver),
-        mode: "onChange"
+        mode: "onChange",
+        reValidateMode: 'onChange',
     });
 
     /**
